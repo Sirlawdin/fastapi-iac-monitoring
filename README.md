@@ -127,15 +127,15 @@ To test the endpoints, you can use `curl`:
 
 ```sh
 # Basic "Hello World"
-curl http://your-app-url/
+curl http://<load-balancer-ip>:8000/
 
 # Simulate slow responses
-curl http://your-app-url/slow
-curl http://your-app-url/random-delay
+curl http://<load-balancer-ip>:8000/slow
+curl http://<load-balancer-ip>:8000/random-delay
 
 # Performance-heavy endpoints
-curl http://your-app-url/cpu-intensive
-curl http://your-app-url/io-wait
+curl http://<load-balancer-ip>:8000/cpu-intensive
+curl http://<load-balancer-ip>:8000/io-wait
 ```
 
 ---
