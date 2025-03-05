@@ -11,22 +11,44 @@ This project sets up an **Amazon EKS (Elastic Kubernetes Service) cluster** with
 ## **Project Structure**
 ```
 eks-datadog-tracing/
-│── main.tf                # Main Terraform configuration
-│── variables.tf           # Terraform variables
-│── outputs.tf             # Terraform outputs
-│── providers.tf           # Terraform providers setup
-│── terraform.tfvars       # Variables values
-│── .terraform.lock.hcl    # Terraform lock file
+│── .gitignore              # Git ignore file
+│── .terraform.lock.hcl     # Terraform lock file
+│── main.tf                 # Main Terraform configuration
+│── outputs.tf              # Terraform outputs
+│── providers.tf            # Terraform providers setup
+│── README.md               # Project documentation
+│── terraform.tfvars        # Terraform variable values
+│── variables.tf            # Terraform variables
 │
-├── app/
-│   ├── Dockerfile         # Docker configuration for the application
-│   ├── main.py           # Application source code
-│   ├── requirements.txt   # Dependencies for the application
+├── app/                    # Application source code
+│   ├── Dockerfile          # Docker configuration for the application
+│   ├── main.py             # FastAPI application source code
+│   ├── requirements.txt    # Dependencies for the application
 │
-└── modules/
-    ├── eks/
-    │   ├── outputs.tf     # Module-specific Terraform outputs
-    │   ├── other files... # Additional module-specific Terraform files
+└── modules/                # Modular Terraform configurations
+    ├── application/        # Application-specific module
+    │   ├── main.tf         # Terraform configuration for the application module
+    │   ├── outputs.tf      # Outputs for the application module
+    │   ├── ReadMe.md       # Documentation for the module
+    │   ├── variables.tf    # Variables for the module
+    │
+    ├── datadog/            # Datadog monitoring and logging module
+    │   ├── datadog.tf      # Datadog configuration
+    │   ├── datadog_dashboard.tf  # Datadog dashboards setup
+    │   ├── datadog_metric.tf     # Datadog metrics configuration
+    │   ├── outputs.tf      # Outputs for the Datadog module
+    │   ├── variables.tf    # Variables for the Datadog module
+    │
+    ├── eks/                # EKS cluster module
+    │   ├── main.tf         # Terraform configuration for EKS
+    │   ├── outputs.tf      # Outputs for the EKS module
+    │   ├── variables.tf    # Variables for the EKS module
+    │
+    ├── vpc/                # VPC networking module
+    │   ├── main.tf         # Terraform configuration for VPC
+    │   ├── outputs.tf      # Outputs for the VPC module
+    │   ├── variables.tf    # Variables for the VPC module
+
 ```
 
 ---
