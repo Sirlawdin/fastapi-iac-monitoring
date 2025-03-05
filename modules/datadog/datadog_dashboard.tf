@@ -12,7 +12,7 @@ resource "datadog_dashboard" "my-fastapi-app" {
 
       request {
         fill {
-          q = "avg:process.stat.container.cpu.total_pct{image_name:onlydole/my-fastapi-app} by {host}"
+          q = "avg:process.stat.container.cpu.total_pct{image_name:sirlawdin/my-fastapi-app} by {host}"
         }
       }
 
@@ -30,7 +30,7 @@ resource "datadog_dashboard" "my-fastapi-app" {
 
       request {
         display_type = "line"
-        q            = "top(avg:kubernetes.cpu.usage.total{image_name:onlydole/my-fastapi-app} by {short_image,container_id}, 10, 'mean', 'desc')"
+        q            = "top(avg:kubernetes.cpu.usage.total{image_name:sirlawdin/my-fastapi-app} by {short_image,container_id}, 10, 'mean', 'desc')"
 
         style {
           line_type  = "solid"
@@ -82,7 +82,7 @@ resource "datadog_dashboard" "my-fastapi-app" {
       title       = "Memory Utilization"
       request {
         display_type = "line"
-        q            = "top(avg:kubernetes.memory.usage{image_name:onlydole/my-fastapi-app} by {container_name}, 10, 'mean', 'desc')"
+        q            = "top(avg:kubernetes.memory.usage{image_name:sirlawdin/my-fastapi-app} by {container_name}, 10, 'mean', 'desc')"
 
         style {
           line_type  = "solid"
