@@ -26,6 +26,7 @@ module "eks" {
       min_size     = var.eks_min_size 
       max_size     = var.eks_max_size 
       desired_size = var.eks_desired_size
+      iam_role_arn   = aws_iam_role.eks_worker_role.arn 
     }
   }
 
